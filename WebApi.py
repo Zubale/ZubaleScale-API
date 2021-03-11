@@ -9,8 +9,10 @@ scale = WeightComms.scale()
 
 @app.route('/')
 def weightOnScale():
-    #todo errors
-    return jsonify({"kg":scale.getWeight()})
+    try:
+        return jsonify({"kg":scale.getWeight()})
+    except Exception as e:
+        return jsonify({"error":str(e)})
 
 
 @app.route('/status')

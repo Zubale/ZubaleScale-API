@@ -25,9 +25,9 @@ class scale:
             if weight > 0:
                 return weight
             else:
-                raise Exception("Scale is not zeroed properly: remove all weight and press tare")
+                raise FloatingPointError("Scale is not zeroed properly: remove all weight and press tare")
         else:
-            raise Exception("Scale is not set properly to kg: Press the unit key to change")
+            raise TypeError("Scale is not set properly to kg: Press the unit key to change")
 
 
     def getData(self):
@@ -39,6 +39,7 @@ class scale:
         self.sendData(self.REQUEST_STATUS)
         data = self.getData()
         print (data)
+        #todo analyse data
         return data
 
     def isZeroed(self):
