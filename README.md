@@ -32,14 +32,14 @@ pip install -r requirements.txt
 
 ```
 set FLASK_APP=WebApi.py
-run python -m flask run
+python -m flask run
 ```
 
 ##### Mac/Linux
 
 ```
 export FLASK_APP=WebApi.py
-run python -m flask run
+python -m flask run
 ```
 
 Then a flask app should start running on localhost:5000. Ready to be called with get 
