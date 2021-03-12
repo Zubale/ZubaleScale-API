@@ -5,7 +5,8 @@ from flask import Flask, jsonify
 #run python -m flask run
 
 app = Flask("ScaleAPI")
-scale = WeightComms.scale()
+port = WeightComms.scale.checkPorts()[0]
+scale = WeightComms.scale(port=port.name)
 
 @app.route('/')
 def weightOnScale():
@@ -18,5 +19,13 @@ def weightOnScale():
 @app.route('/status')
 def statusOnScale():
     return jsonify({"status": scale.getStatus()})
+
+@app.route('/ports')
+def portsOnPC():
+    return jsonify({"ports": [x.name] for x in scale.checkPorts()})
+
+def setPort():
+    #todo port change and reload
+    pass
 
 

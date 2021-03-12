@@ -1,4 +1,5 @@
 import serial
+from serial.tools.list_ports import comports
 import re
 
 class scale:
@@ -10,12 +11,11 @@ class scale:
     def __init__(self, port="COM5", timeout=10):
         self.PORT = port
         self.TIMEOUT = timeout
-        self.com = serial.Serial(port=self.PORT, timeout=self.TIMEOUT)
+        self.WTcom = serial.Serial(port=self.PORT, timeout=self.TIMEOUT)
 
 
 
     def getWeight(self):
-
         self.sendData(self.REQUEST_WEIGHT)
         fullInfo = self.getData()
         if "kg" in fullInfo:
@@ -31,7 +31,7 @@ class scale:
 
 
     def getData(self):
-        data = self.com.read_until(self.FINALCHAR.encode())
+        data = self.WTcom.read_until(self.FINALCHAR.encode())
         print(data)
         return data.decode()
 
@@ -45,9 +45,20 @@ class scale:
     def isZeroed(self):
         pass
 
-    def setPort(self, port):
-        #todo scan for correct port
-        self.PORT = port
+    @staticmethod
+    def checkPorts():
+        ports = comports()
+        if len(ports) != 0:
+            print(ports)
+            print(ports[0].name)
+            return comports()
+        else:
+            raise IOError("No ports found")
 
     def sendData(self, data):
-        self.com.write(data.encode())
+        self.WTcom.write(data.encode())
+
+    def setPort(self):
+        #todo add port search and change
+        pass
+
