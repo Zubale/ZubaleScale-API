@@ -22,6 +22,7 @@ def statusOnScale():
 
 @app.route('/ports')
 def portsOnPC():
+    print(scale.checkPorts())
     return jsonify({"ports": [x.name] for x in scale.checkPorts()})
 
 def setPort():
