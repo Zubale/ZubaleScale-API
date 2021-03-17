@@ -58,7 +58,13 @@ class scale:
     def sendData(self, data):
         self.WTcom.write(data.encode())
 
-    def setPort(self):
-        #todo add port search and change
-        pass
+    def setPort(self, port):
+        self.closePort()
+        self.PORT = port
+        self.WTcom = serial.Serial(port=self.PORT, timeout=self.TIMEOUT)
+        return self.getStatus()
+
+    def closePort(self):
+        self.WTcom.close()
+
 

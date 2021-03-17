@@ -1,32 +1,49 @@
 import WeightComms
 from flask import Flask, jsonify
 
-#set FLASK_APP=WebApi.py
-#run python -m flask run
+# set FLASK_APP=WebApi.py
+# run python -m flask run
 
 app = Flask("ScaleAPI")
 port = WeightComms.scale.checkPorts()[0]
 scale = WeightComms.scale(port=port.name)
 
+
 @app.route('/')
 def weightOnScale():
     try:
-        return jsonify({"kg":scale.getWeight()})
+        return jsonify({"kg": scale.getWeight()})
+    except TypeError as e:
+        return jsonify({"error": "TyperError: " + str(e)})
+    except FloatingPointError as e:
+        return jsonify({"error": "ValueError: " + str(e)})
     except Exception as e:
-        return jsonify({"error":str(e)})
+        return jsonify({"error": str(e)})
 
 
 @app.route('/status')
 def statusOnScale():
-    return jsonify({"status": scale.getStatus()})
+    try:
+        return jsonify({"status": scale.getStatus()})
+    except Exception as e:
+        return jsonify({"error": str(e)})
+
 
 @app.route('/ports')
 def portsOnPC():
-    print(scale.checkPorts())
-    return jsonify({"ports": [x.name] for x in scale.checkPorts()})
+    try:
+        print(scale.checkPorts())
+        return jsonify({"ports": [x.name] for x in scale.checkPorts()})
+    except IOError as io:
+        return jsonify({"error": "Port Error: " + str(io)})
+    except Exception as e:
+        return jsonify({"error": str(e)})
 
-def setPort():
-    #todo port change and reload
-    pass
 
-
+@app.route('/reset')
+def reset():
+    try:
+        port = WeightComms.scale.checkPorts()[0]
+        scale.setPort(port)
+    except Exception as e:
+        return jsonify({"error": str(e)})
