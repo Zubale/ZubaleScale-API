@@ -18,7 +18,7 @@ def weightOnScale():
     except FloatingPointError as e:
         return jsonify({"error": "ValueError: " + str(e)})
     except Exception as e:
-        return jsonify({"error": str(e)})
+        return jsonify({"error": str(e), "info": str(e.__traceback__)})
 
 
 @app.route('/status')
@@ -26,7 +26,7 @@ def statusOnScale():
     try:
         return jsonify({"status": scale.getStatus()})
     except Exception as e:
-        return jsonify({"error": str(e)})
+        return jsonify({"error": str(e), "info": str(e.__traceback__)})
 
 
 @app.route('/ports')
@@ -37,13 +37,13 @@ def portsOnPC():
     except IOError as io:
         return jsonify({"error": "Port Error: " + str(io)})
     except Exception as e:
-        return jsonify({"error": str(e)})
+        return jsonify({"error": str(e), "info": str(e.__traceback__)})
 
 
 @app.route('/reset')
 def reset():
     try:
-        port = WeightComms.scale.checkPorts()[0]
+        port = WeightComms.scale.checkPorts()[0].name
         scale.setPort(port)
     except Exception as e:
-        return jsonify({"error": str(e)})
+        return jsonify({"error": str(e), "info": str(e.__traceback__)})
