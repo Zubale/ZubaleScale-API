@@ -45,5 +45,6 @@ def reset():
     try:
         port = WeightComms.scale.checkPorts()[0].name
         scale.setPort(port)
+        return jsonify({"port": port})
     except Exception as e:
         return jsonify({"error": str(e), "info": str(e.__traceback__)})
