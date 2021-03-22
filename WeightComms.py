@@ -59,10 +59,14 @@ class scale:
         self.WTcom.write(data.encode())
 
     def setPort(self, port):
-        self.closePort()
-        self.PORT = port
-        self.WTcom = serial.Serial(port=self.PORT, timeout=self.TIMEOUT)
-        return self.getStatus()
+        try:
+            self.closePort()
+        except Exception as e:
+            print(e)
+        finally:
+            self.PORT = port
+            self.WTcom = serial.Serial(port=self.PORT, timeout=self.TIMEOUT)
+            return self.getStatus()
 
     def closePort(self):
         self.WTcom.close()
