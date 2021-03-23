@@ -5,8 +5,11 @@ from flask import Flask, jsonify
 # run python -m flask run
 
 app = Flask("ScaleAPI")
-port = WeightComms.scale.checkPorts()[0]
-scale = WeightComms.scale(port=port.name)
+try:
+    port = WeightComms.scale.checkPorts()[0]
+    scale = WeightComms.scale(port=port.name)
+except Exception as e:
+    print(e)
 
 
 @app.route('/')
