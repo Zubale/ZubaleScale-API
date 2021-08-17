@@ -1,0 +1,4 @@
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<NetworkExploration ActionCode="Read"/>
+</Message>

@@ -1,0 +1,13 @@
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<ConfigTransaction ActionCode="Update">
+    <ConfigValue>
+        <Name>Platform.DeviceNo</Name>
+        <Value>2</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Platform.DeviceName</Name>
+        <Value>right</Value>
+    </ConfigValue>
+</ConfigTransaction>
+</Message>

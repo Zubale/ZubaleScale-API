@@ -1,0 +1,12 @@
+<Message>
+<ARTSCommonHeader MessageType="Response">
+    <Response ResponseCode="OK"/>
+</ARTSCommonHeader>
+<TransactionLog ActionCode="MoveTo">
+    <Ticket>
+        <ID>0</ID>
+        <Discount/>
+        <MemberInfo/>
+    </Ticket>
+</TransactionLog>
+</Message>

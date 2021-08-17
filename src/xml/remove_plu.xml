@@ -1,0 +1,9 @@
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<ItemTransaction ActionCode="Delete">
+    <Item>
+        <PLU>777</PLU>
+        <DepartmentID>0</DepartmentID>
+    </Item>
+</ItemTransaction>
+</Message>

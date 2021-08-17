@@ -1,0 +1,28 @@
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<ItemTransaction ActionCode="Update">
+    <Item>
+        <PLU>777</PLU>
+        <DepartmentID>0</DepartmentID>
+        <AlternativeItemIDs Action="Create">
+            <AlternativeItemID>777</AlternativeItemID>
+        </AlternativeItemIDs>
+        <Descriptions Action="Create">
+            <Description Type="ItemName">zubale</Description>
+            <Description ID="0" Type="ExtraText"></Description>
+        </Descriptions>
+        <ItemPrices Action="Update">
+            <ItemPrice ValueTypeCode="BasePrice" Index="0" UnitOfMeasureCode="KGM" PriceOverrideFlag="false"
+                       DiscountFlag="false" Hidden="false">1
+            </ItemPrice>
+        </ItemPrices>
+        <Dates Action="Create">
+            <DateOffset Type="PackedDate" UnitOfOffset="day" IsPrintEnabled="false">0</DateOffset>
+            <DateOffset Type="SellBy" UnitOfOffset="day" IsPrintEnabled="false">0</DateOffset>
+        </Dates>
+        <LabelFormats Action="Create">
+            <LabelFormatID Index="0">0</LabelFormatID>
+        </LabelFormats>
+    </Item>
+</ItemTransaction>
+</Message>

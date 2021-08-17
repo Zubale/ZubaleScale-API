@@ -1,0 +1,21 @@
+<Message>
+<ARTSCommonHeader MessageType="Response"/>
+<NetworkExploration>
+    <DeviceMap>
+        <DeviceID>00:10:52:D1:21:C1</DeviceID>
+        <ModelName>bPlus</ModelName>
+        <SerialNumber>C021461397</SerialNumber>
+        <FirmwareVersion>30232593K| AP1.0.0 RB2.2.0 WP2.2.0 SP1.70.33 [43056]</FirmwareVersion>
+        <DeviceNo>49</DeviceNo>
+        <DepartmentID>0</DepartmentID>
+        <IPAddress>192.168.0.114</IPAddress>
+        <TCPPort>3001</TCPPort>
+        <DeviceTime>2021-07-16T00:01:04</DeviceTime>
+        <TimeSinceSet>35823059</TimeSinceSet>
+        <MappingPort>0</MappingPort>
+        <CWANID/>
+        <LocalStoreID/>
+        <ImageVersion/>
+    </DeviceMap>
+</NetworkExploration>
+</Message>
