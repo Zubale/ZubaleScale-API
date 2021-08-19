@@ -1,96 +1,66 @@
-import serial
-from serial.tools.list_ports import comports
+import socket
+import xml.dom.minidom
 import re
 
-class scale:
+class Scale:
 
-    FINALCHAR = chr(13)
-    REQUEST_WEIGHT = "W"
-    REQUEST_STATUS = "S\r"
-    ECHOTEST = "E"
-    RANDOMCHAR = "J"
-    ECHOOFF = "F"
+    XML_PATH = "src/xml/"
+    RESPONSE_PATH = XML_PATH + "receive_ticket.xml"
+    PLU_PATH = XML_PATH + "create_plu.xml"
+    REMOVE_PLU_PATH = XML_PATH + "remove_plu.xml"
+    NET_EXPLORE_PATH = XML_PATH + "net_explore.xml"
+
+    BUFFER_SIZE = 1024
+    TCP_PORT = 3001
+    SERVER_IP_AD = "192.168.0.110"
+    CLIENT_IP_AD = "192.168.0.155"
+    BROADCAST_IP = "255.255.255.250"
 
     def __init__(self, port="COM5", timeout=10):
         self.PORT = port
         self.TIMEOUT = timeout
-        self.MettlerToledo = serial.Serial(port=self.PORT, timeout=self.TIMEOUT)
 
+    def sendMessage(self, file_path, client_ip=CLIENT_IP_AD):
+        print('message en route')
+        s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+        s.bind((self.SERVER_IP_AD, 0))
+        s.connect((client_ip, self.TCP_PORT))
 
-
-    def getWeight(self):
-        self.sendData(self.REQUEST_WEIGHT)
-        fullInfo = self.getData()
-        '''if "kg" in fullInfo:
-            pattern = r'[-]?\d*[.]\d*'
-            match = re.search(pattern, fullInfo)
-            weight = float(match.group())
-            if weight > 0:
-                return weight
-            else:
-                raise FloatingPointError("Scale is not zeroed properly: remove all weight and press tare")
-        else:
-            raise TypeError("Scale is not set properly to kg: Press the unit key to change")
-        '''
-        print(fullInfo)
-
-    def echoTest(self):
-        self.sendData(self.ECHOTEST)
-        print(self.getData())
-        self.sendData(self.RANDOMCHAR)
-        print(self.getData())
-        self.sendData(self.ECHOOFF)
-        print(self.getData())
-
-
-    def getData(self):
-        data = self.MettlerToledo.read_until(self.FINALCHAR.encode())
-        print(data)
-        print("return")
-        return data.decode()
-
-    def getStatus(self):
-        self.sendData(self.REQUEST_STATUS)
-        data = self.getData()
-        print (data)
+        MESSAGE = self.openFile(file_path)
+        s.send(MESSAGE.encode())
+        data = s.recv(self.BUFFER_SIZE)
+        s.close()
         return data
 
-    def isZeroed(self):
-        pass
+    def openXml(self, xmlPathName):
+        DOMTree = xml.dom.minidom.parse(xmlPathName)
+        collection = DOMTree.documentElement
+        return collection
 
-    @staticmethod
-    def checkPorts():
-        ports = comports()
-        if len(ports) != 0:
+    def getAttribute(tag, attribute, collection):
+        elementTag = collection.getElementsByTagName(tag)[-1]
+        if (elementTag.hasAttribute(attribute)):
+            return float(elementTag.getAttribute(attribute))
 
-            print(ports[0].name)
-            return comports()
-        else:
-            raise IOError("No ports found")
+    def openFile(self, file_path):
+        file = open(file_path, "r")
+        legend = file.read()
+        file.close()
+        return legend
 
-    def sendData(self, data):
-        print('data')
-        print(data.encode())
-        self.MettlerToledo.write(data.encode())
+    def addPlu(self):
+        self.sendMessage(self.PLU_PATH)
 
-    def setPort(self, port):
-        try:
-            self.closePort()
-        except Exception as e:
-            print(e)
-        finally:
-            self.PORT = port
-            self.MettlerToledo = serial.Serial(port=self.PORT, timeout=self.TIMEOUT)
-            return self.getStatus()
+    def removePlu(self):
+        self.sendMessage(self.REMOVE_PLU_PATH)
 
-    def closePort(self):
-        self.MettlerToledo.close()
+    def exploreForScale(self):
+        scale = self.sendMessage(self.NET_EXPLORE_PATH, self.BROADCAST_IP)
+        print(scale)
+        #TODO fix errors for broadcast
+
+if __name__ == '__main__':
+    scale = Scale()
+    scale.exploreForScale()
 
 
-print(scale.FINALCHAR)
-port = scale.checkPorts()[0]
-scaley = scale(port=port.name)
-#scaley.echoTest()
-scaley.sendData("2666666")
-scaley.getData()
-scaley.closePort()
