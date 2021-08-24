@@ -1,13 +1,14 @@
 from socketserver import BaseRequestHandler, TCPServer
-import datetime, socket
+import xml.dom.minidom as xml
+
+XML_TAG = "Weight"
 
 BUFFER_SIZE = 1024
 TCP_PORT = 3001
-BUFFER_SIZE = 1024
 IP_AD = "192.168.0.110"
-XML_DIR = "src/xml/"
-RESPONSE_DIR = XML_DIR + "receive_ticket.xml"
-PLU_DIR = XML_DIR + "create_plu.xml"
+FILES_DIR = "files/"
+RESPONSE_DIR = FILES_DIR + "receive_ticket.xml"
+CURRENT_WEIGHT_DIR = FILES_DIR + "current_weight.txt"
 
 
 
@@ -17,25 +18,39 @@ class ScaleHandler(BaseRequestHandler):
     See examples: https://www.programcreek.com/python/example/73643/SocketServer.BaseRequestHandler
     """
 
-    LAST_WIEGHT = 0.0
-    LAST_TIME = datetime.MINYEAR
-
 
     def handle(self):
+        #get data and send generic response
+        print("Receiving data")
         data = self.request.recv(BUFFER_SIZE)
-        print(f"{self.client_address[0]}: {str(data)}")
+        print(f"{self.client_address[0]}: {data.decode()}")
         response = self.openFile(RESPONSE_DIR).encode()
         self.request.sendall(response)
-        #TODO add compare values
-        #TODO save last value
+
+        #save data to file
+        print("Saving data")
+        weight  = self.getWeight(data.decode())
+        self.writeFile(CURRENT_WEIGHT_DIR,weight)
+
+
 
 
     def openFile(self, file_dir):
         file = open(file_dir, "r")
         legend = file.read()
         file.close()
-
         return legend
+
+    def writeFile(self, file_dir, message):
+        f = open(file_dir, "w")
+        f.write(message)
+        f.close()
+
+    def getWeight(self, raw_xml):
+        domtree = xml.parseString(raw_xml).documentElement
+        node = domtree.getElementsByTagName(XML_TAG)[0]
+        elem = node.childNodes[0]
+        return elem.nodeValue
 
 
 if __name__ == "__main__":

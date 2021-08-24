@@ -1,0 +1,30 @@
+<Message>
+    <ARTSCommonHeader MessageType="Request"/>
+    <TransactionLog ActionCode="MoveTo">
+        <Ticket>
+            <ReceiptID>200000019</ReceiptID>
+            <LocalReceiptID>20</LocalReceiptID>
+            <DeviceID>2</DeviceID>
+            <ReceiptDate>2021-08-25T06:12:38</ReceiptDate>
+            <State>Closed</State>
+            <UserID>1</UserID>
+            <Registration>
+                <TradeDate>2021-08-25T06:12:35</TradeDate>
+                <PLU>777</PLU>
+                <AlternativeItemID>777</AlternativeItemID>
+                <Description>zubale</Description>
+                <Weight>0.884000</Weight>
+                <BasePrice UnitPrice="1.000000" Quantity="0">1.000000</BasePrice>
+                <PriceToPay>0.880000</PriceToPay>
+                <TransactionDateOffset Type="PackedDate" IsPrintEnabled="false">0</TransactionDateOffset>
+                <TransactionDateOffset Type="SellBy" IsPrintEnabled="false">0</TransactionDateOffset>
+            </Registration>
+            <Weight>0.884000</Weight>
+            <PriceToPay>0.880000</PriceToPay>
+            <OriginalSalesTotal>0.880000</OriginalSalesTotal>
+            <FiscalState>NotExported</FiscalState>
+            <SequenceNumber>19</SequenceNumber>
+            <TicketReported>Reported</TicketReported>
+        </Ticket>
+    </TransactionLog>
+</Message>

@@ -1,0 +1,929 @@
+error response server
+<Message>
+    <ARTSCommonHeader MessageType="Response">
+        <Response ResponseCode="Rejected">
+            <BusinessError>
+                <Code>1001</Code>
+            </BusinessError>
+        </Response>
+    </ARTSCommonHeader>
+</Message>
+
+        server lookup
+<Message>
+<ARTSCommonHeader MessageType="Publish"/>
+<NetworkExploration ActionCode="Publish">
+    <DeviceMap>
+        <DeviceID>00:10:52:D1:21:C1</DeviceID>
+        <ModelName>bPlus</ModelName>
+        <SerialNumber>C021461397</SerialNumber>
+        <FirmwareVersion>30232593K| AP1.0.0 RB2.2.0 WP2.2.0 SP1.70.33 [43056]</FirmwareVersion>
+        <DeviceNo>49</DeviceNo>
+        <DepartmentID>0</DepartmentID>
+        <IPAddress>192.168.0.114</IPAddress>
+        <TCPPort>3001</TCPPort>
+        <DeviceTime>2021-06-17T05:55:23</DeviceTime>
+        <TimeSinceSet>33338718</TimeSinceSet>
+        <Service>ItemDataServer</Service>
+        <MappingPort>0</MappingPort>
+        <CWANID/>
+        <LocalStoreID/>
+        <ImageVersion/>
+    </DeviceMap>
+</NetworkExploration>
+</Message>
+
+        udp client lookup
+<Message>
+<ARTSCommonHeader MessageType="Publish"/>
+<NetworkExploration ActionCode="Publish">
+    <DeviceMap>
+        <DeviceID>00:10:52:D1:21:C1</DeviceID>
+        <ModelName>bPlus</ModelName>
+        <SerialNumber>C021461397</SerialNumber>
+        <FirmwareVersion>30232593K| AP1.0.0 RB2.2.0 WP2.2.0 SP1.70.33 [43056]</FirmwareVersion>
+        <DeviceNo>49</DeviceNo>
+        <DepartmentID>0</DepartmentID>
+        <IPAddress>192.168.0.114</IPAddress>
+        <TCPPort>3001</TCPPort>
+        <DeviceTime>2021-06-17T11:49:54</DeviceTime>
+        <TimeSinceSet>33359989</TimeSinceSet>
+        <MappingPort>0</MappingPort>
+        <CWANID/>
+        <LocalStoreID/>
+        <ImageVersion/>
+    </DeviceMap>
+</NetworkExploration>
+</Message>
+
+        tcp client lookup
+<Message>
+<ARTSCommonHeader MessageType="Request">
+    <WorkstationID>C021461397[:49]</WorkstationID>
+</ARTSCommonHeader>
+<ItemTransaction ActionCode="RequestStatus"/>
+</Message>
+
+        server log
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<TransactionLog ActionCode="MoveTo">
+    <Ticket>
+        <ReceiptID>4900000001</ReceiptID>
+        <LocalReceiptID>1</LocalReceiptID>
+        <DeviceID>49</DeviceID>
+        <ReceiptDate>2020-05-27T09:18:05</ReceiptDate>
+        <State>Closed</State>
+        <UserID>1</UserID>
+        <Registration>
+            <TradeDate>2020-05-27T09:18:04</TradeDate>
+            <Description>ArtÃculo introducir libre precio</Description>
+            <Weight>1.002000</Weight>
+            <BasePrice UnitPrice="0.060000" ValueTypeName="DirectPrice" PriceOverWriteFlag="true" DiscountFlag="true"
+                       Quantity="0" MarkUpFlag="true">0.060000
+            </BasePrice>
+            <PriceToPay>0.060000</PriceToPay>
+        </Registration>
+        <Weight>1.002000</Weight>
+        <PriceToPay>0.060000</PriceToPay>
+        <OriginalSalesTotal>0.060000</OriginalSalesTotal>
+        <FiscalState>NotExported</FiscalState>
+        <SequenceNumber>1</SequenceNumber>
+        <TicketReported>Reported</TicketReported>
+    </Ticket>
+</TransactionLog>
+</Message>
+
+
+        ***********************************************************************************
+        solicitud a escala
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<NetworkExploration ActionCode="Read"/>
+</Message>
+
+
+        respuesta
+<Message>
+<ARTSCommonHeader MessageType="Response"/>
+<NetworkExploration>
+    <DeviceMap>
+        <DeviceID>00:10:52:D1:21:C1</DeviceID>
+        <ModelName>bPlus</ModelName>
+        <SerialNumber>C021461397</SerialNumber>
+        <FirmwareVersion>30232593K| AP1.0.0 RB2.2.0 WP2.2.0 SP1.70.33 [43056]</FirmwareVersion>
+        <DeviceNo>49</DeviceNo>
+        <DepartmentID>0</DepartmentID>
+        <IPAddress>192.168.0.114</IPAddress>
+        <TCPPort>3001</TCPPort>
+        <DeviceTime>2021-07-16T00:01:04</DeviceTime>
+        <TimeSinceSet>35823059</TimeSinceSet>
+        <MappingPort>0</MappingPort>
+        <CWANID/>
+        <LocalStoreID/>
+        <ImageVersion/>
+    </DeviceMap>
+</NetworkExploration>
+</Message>
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<SystemTransaction ActionCode="Read">
+    <DeviceTime></DeviceTime>
+</SystemTransaction>
+</Message>
+
+<Message>
+<ARTSCommonHeader MessageType="Response"/>
+<SystemTransaction>
+    <DeviceTime>2021-07-16T00:20:25</DeviceTime>
+</SystemTransaction>
+</Message>
+
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<ItemTransaction ActionCode="ReadAll">
+    <Tare/>
+</ItemTransaction>
+</Message>
+
+<Message>
+<ARTSCommonHeader MessageType="Response">
+    <Response ResponseCode="Rejected">
+        <BusinessError>
+            <Code>4006</Code>
+        </BusinessError>
+    </Response>
+</ARTSCommonHeader>
+</Message>
+
+        ****
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<TransactionLog ActionCode="MoveTo">
+    <Ticket>
+        <ReceiptID>4900000001</ReceiptID>
+        <LocalReceiptID>1</LocalReceiptID>
+        <DeviceID>49</DeviceID>
+        <ReceiptDate>2020-05-27T09:18:05</ReceiptDate>
+        <State>Closed</State>
+        <UserID>1</UserID>
+        <Registration>
+            <TradeDate>2020-05-27T09:18:04</TradeDate>
+            <Description>ArtÃculo introducir libre precio</Description>
+            <Weight>1.002000</Weight>
+            <BasePrice UnitPrice="0.060000" ValueTypeName="DirectPrice" PriceOverWriteFlag="true" DiscountFlag="true"
+                       Quantity="0" MarkUpFlag="true">0.060000
+            </BasePrice>
+            <PriceToPay>0.060000</PriceToPay>
+        </Registration>
+        <Weight>1.002000</Weight>
+        <PriceToPay>0.060000</PriceToPay>
+        <OriginalSalesTotal>0.060000</OriginalSalesTotal>
+        <FiscalState>NotExported</FiscalState>
+        <SequenceNumber>1</SequenceNumber>
+        <TicketReported>Reported</TicketReported>
+    </Ticket>
+</TransactionLog>
+</Message>
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<ConfigTransaction ActionCode="Update">
+    <ConfigValue>
+        <Name>Platform.DeviceNo</Name>
+        <Value>1</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Platform.DeviceName</Name>
+        <Value>scale left</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.ServerPort</Name>
+        <Value>3001</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.ServerDN</Name>
+        <Value></Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.Forwarding</Name>
+        <Value>Immediate</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.ServiceType</Name>
+        <Value>Forward To IP</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.OverflowAction</Name>
+        <Value>Delete Oldest</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.ServerIP</Name>
+        <Value>192.168.0.110</Value>
+    </ConfigValue>
+</ConfigTransaction>
+</Message>
+
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<TransactionLog ActionCode="MoveTo">
+    <Ticket>
+        <ReceiptID>4900000001</ReceiptID>
+        <LocalReceiptID>1</LocalReceiptID>
+        <DeviceID>49</DeviceID>
+        <ReceiptDate>2020-05-27T09:18:05</ReceiptDate>
+        <State>Closed</State>
+        <UserID>1</UserID>
+        <Registration>
+            <TradeDate>2020-05-27T09:18:04</TradeDate>
+            <Description>ArtÃculo introducir libre precio</Description>
+            <Weight>1.002000</Weight>
+            <BasePrice UnitPrice="0.060000" ValueTypeName="DirectPrice" PriceOverWriteFlag="true" DiscountFlag="true"
+                       Quantity="0" MarkUpFlag="true">0.060000
+            </BasePrice>
+            <PriceToPay>0.060000</PriceToPay>
+        </Registration>
+        <Weight>1.002000</Weight>
+        <PriceToPay>0.060000</PriceToPay>
+        <OriginalSalesTotal>0.060000</OriginalSalesTotal>
+        <FiscalState>NotExported</FiscalState>
+        <SequenceNumber>1</SequenceNumber>
+        <TicketReported>Reported</TicketReported>
+    </Ticket>
+</TransactionLog>
+</Message>
+
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<ItemTransaction ActionCode="Delete">
+    <Item>
+        <PLU>777</PLU>
+        <DepartmentID>0</DepartmentID>
+    </Item>
+</ItemTransaction>
+</Message>
+
+*** creeate plu ***
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<ItemTransaction ActionCode="Update">
+    <Item>
+        <PLU>777</PLU>
+        <DepartmentID>0</DepartmentID>
+        <AlternativeItemIDs Action="Create">
+            <AlternativeItemID>777</AlternativeItemID>
+        </AlternativeItemIDs>
+        <Descriptions Action="Create">
+            <Description Type="ItemName">zubale</Description>
+            <Description ID="0" Type="ExtraText"></Description>
+        </Descriptions>
+        <ItemPrices Action="Update">
+            <ItemPrice ValueTypeCode="BasePrice" Index="0" UnitOfMeasureCode="KGM" PriceOverrideFlag="false"
+                       DiscountFlag="false" Hidden="false">1
+            </ItemPrice>
+        </ItemPrices>
+        <Dates Action="Create">
+            <DateOffset Type="PackedDate" UnitOfOffset="day" IsPrintEnabled="false">0</DateOffset>
+            <DateOffset Type="SellBy" UnitOfOffset="day" IsPrintEnabled="false">0</DateOffset>
+        </Dates>
+        <LabelFormats Action="Create">
+            <LabelFormatID Index="0">0</LabelFormatID>
+        </LabelFormats>
+    </Item>
+</ItemTransaction>
+</Message>
+
+
+        **start
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<SystemTransaction ActionCode="Read">
+    <DeviceTime></DeviceTime>
+</SystemTransaction>
+</Message>
+<Message>
+<ARTSCommonHeader MessageType="Response"/>
+<SystemTransaction>
+    <DeviceTime>2021-07-19T03:22:57</DeviceTime>
+</SystemTransaction>
+</Message>
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<NetworkExploration ActionCode="Read"/>
+</Message>
+<Message>
+<ARTSCommonHeader MessageType="Response"/>
+<NetworkExploration>
+    <DeviceMap>
+        <DeviceID>00:10:52:D0:D8:8E</DeviceID>
+        <ModelName>bPlus</ModelName>
+        <SerialNumber>C015279950</SerialNumber>
+        <FirmwareVersion>30232593K| AP1.0.0 RB2.2.0 WP2.2.0 SP1.70.33 [43056]</FirmwareVersion>
+        <DeviceNo>69</DeviceNo>
+        <DepartmentID>0</DepartmentID>
+        <IPAddress>192.168.0.155</IPAddress>
+        <TCPPort>3001</TCPPort>
+        <DeviceTime>2021-07-19T03:22:57</DeviceTime>
+        <TimeSinceSet>40051765</TimeSinceSet>
+        <MappingPort>0</MappingPort>
+        <CWANID/>
+        <LocalStoreID/>
+        <ImageVersion/>
+    </DeviceMap>
+</NetworkExploration>
+</Message>
+
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<SystemTransaction ActionCode="ReadAll">
+    <ModuleInformation/>
+</SystemTransaction>
+</Message>
+<Message>
+<ARTSCommonHeader MessageType="Response"/>
+<SystemTransaction>
+    <ModuleInformation Type="LPSOne" SoftwareVersion="30232593K| AP1.0.0 RB2.2.0 WP2.2.0 SP1.70.33 [43056]">DeviceType =
+        bPlus
+        USID = C015279950
+        UBID = 0110053357050096
+        UCID =
+        OptionLock = 3080208277
+        LicenseSet = 0
+        LID =
+        ImageVersion = bPlus_SI_LA_200323
+        CountryName = Mexico
+        Sealed = 1
+        Approval =
+        MACAddress = 00:10:52:D0:D8:8E
+        IPMode = Static
+        IPAdr = 192.168.0.155
+        IPMask = 255.255.0.0
+        Gateway = 0.0.0.0
+        UDPListenPort = 2305
+        TCPListenPort = 3001
+        ExploreMode = Broadcast
+        DNSIP = 0.0.0.0
+        DNSIP2 = 0.0.0.0
+        MulticastGroup =
+        DeviceNo = 69
+        DeviceName =
+        Department = 0
+        WeightUnit = kg
+        LegalWeightUnits = kg|g
+        UnitOfMeasureDisplay = kg
+        GEOCode = 5
+        Calibration = 1 x 1.1.2000
+        Filter = Low
+        CountryCode = MX
+        CurrencySymbol = $
+        CurrencyCode =
+        CurrencyPosition = Prefix
+        FormatLocked = No
+        UnitPriceDigits = 2
+        UnitPriceRound = Middle Up
+        UnitPriceRes = 1
+        TotalPriceDigits = 2
+        TotalPriceRound = Middle Up
+        TotalPriceRes = 1
+        DiscountDigits =
+        DiscountRound =
+        DiscountRes =
+        TotalSalesDigits = 2
+        TotalSalesRound = Middle Up
+        TotalSalesRes = 1
+        CurrencyDecimalSeparator = .
+        CurrencyGroupingPlace = 0
+        CurrencyGroupingSeparator = ,
+        NumDecimalSeparator = .
+        NumGroupingPlace = 0
+        NumGroupingSeparator = ,
+        ShowNegWgt = No
+        ShowZeroIcon = Yes
+        MinBookingWeight = 20e
+        AllowChainTare = Yes
+        ConfigDB_Size =
+        ItemDB_Size =
+        EventDB_Size =
+        TLogDB_Size =
+        InternalBackup = Dirty 07-07-2021 09:07:57
+        AutoPrint =
+        DefaultOperatorForAutoPrint = 1
+        UpdateInfo0 =
+        UpdateInfo1 =
+        UpdateInfo2 =
+        UpdateInfo3 =
+        UpdateInfo4 =
+        UpdateInfo5 =
+        UpdateInfo6 =
+        UpdateInfo7 =
+        UpdateInfo8 =
+        UpdateInfo9 =
+        UP_COUNTER = 639928412
+        START_MODE = 0
+        ACTIVE_PARTITION = 1
+        DEBUG_OUTPUT = None
+        LAST_HALT_REASON = 0
+        MAIN_POWER_LOST = 14
+        FORCED_RESET = 0
+        SystemviewBuffer = 0
+        USBDevice = Disable
+        Cell Temperature (C) = 24.0
+        ForceFiscalMode =
+        Print head lines(cm) = 112
+        Printed length (cm) = 112
+        Max temp of print head = 632
+        Replace time =
+        AC Power = On
+        Main Battery (%) = None
+        Backup battery (%) = 66
+        Main power lost times = 14
+        Soft switch off times = 8
+    </ModuleInformation>
+    <ModuleInformation Type="Keyboard" SoftwareVersion="KBbPlus"></ModuleInformation>
+    <ModuleInformation Type="Printer" SoftwareVersion="30211548O 1.00.0004"></ModuleInformation>
+    <ModuleInformation Type="Charger" SoftwareVersion=""></ModuleInformation>
+    <ModuleInformation Type="Loadcell" SoftwareVersion="1.70.33-22.01"></ModuleInformation>
+    <ModuleInformation Type="PMU" SoftwareVersion="S008H006I6R1111111/"></ModuleInformation>
+    <ModuleInformation Type="BootMon" SoftwareVersion="1.0.11"></ModuleInformation>
+    <ModuleInformation Type="Fiscal" SoftwareVersion=""></ModuleInformation>
+</SystemTransaction>
+</Message>
+
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<TransactionLog ActionCode="MoveTo">
+    <Ticket>
+        <ReceiptID>6900000001</ReceiptID>
+        <LocalReceiptID>1</LocalReceiptID>
+        <DeviceID>69</DeviceID>
+        <ReceiptDate>2020-04-11T14:01:52</ReceiptDate>
+        <State>Closed</State>
+        <UserID>1</UserID>
+        <Registration>
+            <TradeDate>2020-04-11T14:01:52</TradeDate>
+            <Description>ArtÃculo introducir libre precio</Description>
+            <Weight>1.002000</Weight>
+            <BasePrice UnitPrice="0.060000" ValueTypeName="DirectPrice" PriceOverWriteFlag="true" DiscountFlag="true"
+                       Quantity="0" MarkUpFlag="true">0.060000
+            </BasePrice>
+            <PriceToPay>0.060000</PriceToPay>
+        </Registration>
+        <Weight>1.002000</Weight>
+        <PriceToPay>0.060000</PriceToPay>
+        <OriginalSalesTotal>0.060000</OriginalSalesTotal>
+        <FiscalState>NotExported</FiscalState>
+        <SequenceNumber>1</SequenceNumber>
+        <TicketReported>Reported</TicketReported>
+    </Ticket>
+</TransactionLog>
+</Message>
+
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<ConfigTransaction ActionCode="Update">
+    <ConfigValue>
+        <Name>Platform.DeviceNo</Name>
+        <Value>2</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Platform.DeviceName</Name>
+        <Value>right</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.ServerPort</Name>
+        <Value>3001</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.ServerDN</Name>
+        <Value></Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.Forwarding</Name>
+        <Value>Immediate</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.ServiceType</Name>
+        <Value>Forward To IP</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.OverflowAction</Name>
+        <Value>Delete Oldest</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.ServerIP</Name>
+        <Value>192.168.0.110</Value>
+    </ConfigValue>
+</ConfigTransaction>
+</Message>
+
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<ConfigTransaction ActionCode="Update">
+    <ConfigValue>
+        <Name>Platform.DeviceNo</Name>
+        <Value>2</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Platform.DeviceName</Name>
+        <Value>right</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.ServerPort</Name>
+        <Value>3001</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.ServerDN</Name>
+        <Value></Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.Forwarding</Name>
+        <Value>Overflow</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.ServiceType</Name>
+        <Value>Forward To IP</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.OverflowAction</Name>
+        <Value>Delete Oldest</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Tlog.ServerIP</Name>
+        <Value>192.168.0.110</Value>
+    </ConfigValue>
+</ConfigTransaction>
+</Message>
+
+
+<Message>
+<ARTSCommonHeader MessageType="Response"/>
+<SystemTransaction>
+    <ModuleInformation Type="LPSOne" SoftwareVersion="30232593K| AP1.0.0 RB2.2.0 WP2.2.0 SP1.70.33 [43056]">DeviceType =
+        bPlus
+        USID = C015279950
+        UBID = 0110053357050096
+        UCID =
+        OptionLock = 3080208277
+        LicenseSet = 0
+        LID =
+        ImageVersion = bPlus_SI_LA_200323
+        CountryName = Mexico
+        Sealed = 1
+        Approval =
+        MACAddress = 00:10:52:D0:D8:8E
+        IPMode = Static
+        IPAdr = 192.168.0.155
+        IPMask = 255.255.0.0
+        Gateway = 0.0.0.0
+        UDPListenPort = 2305
+        TCPListenPort = 3001
+        ExploreMode = Broadcast
+        DNSIP = 0.0.0.0
+        DNSIP2 = 0.0.0.0
+        MulticastGroup =
+        DeviceNo = 2
+        DeviceName = right
+        Department = 0
+        WeightUnit = kg
+        LegalWeightUnits = kg|g
+        UnitOfMeasureDisplay = kg
+        GEOCode = 5
+        Calibration = 1 x 1.1.2000
+        Filter = Low
+        CountryCode = MX
+        CurrencySymbol = $
+        CurrencyCode =
+        CurrencyPosition = Prefix
+        FormatLocked = No
+        UnitPriceDigits = 2
+        UnitPriceRound = Middle Up
+        UnitPriceRes = 1
+        TotalPriceDigits = 2
+        TotalPriceRound = Middle Up
+        TotalPriceRes = 1
+        DiscountDigits =
+        DiscountRound =
+        DiscountRes =
+        TotalSalesDigits = 2
+        TotalSalesRound = Middle Up
+        TotalSalesRes = 1
+        CurrencyDecimalSeparator = .
+        CurrencyGroupingPlace = 0
+        CurrencyGroupingSeparator = ,
+        NumDecimalSeparator = .
+        NumGroupingPlace = 0
+        NumGroupingSeparator = ,
+        ShowNegWgt = No
+        ShowZeroIcon = Yes
+        MinBookingWeight = 20e
+        AllowChainTare = Yes
+        ConfigDB_Size =
+        ItemDB_Size =
+        EventDB_Size =
+        TLogDB_Size =
+        InternalBackup = Dirty 07-07-2021 09:07:57
+        AutoPrint =
+        DefaultOperatorForAutoPrint = 1
+        UpdateInfo0 =
+        UpdateInfo1 =
+        UpdateInfo2 =
+        UpdateInfo3 =
+        UpdateInfo4 =
+        UpdateInfo5 =
+        UpdateInfo6 =
+        UpdateInfo7 =
+        UpdateInfo8 =
+        UpdateInfo9 =
+        UP_COUNTER = 639928412
+        START_MODE = 0
+        ACTIVE_PARTITION = 1
+        DEBUG_OUTPUT = None
+        LAST_HALT_REASON = 0
+        MAIN_POWER_LOST = 14
+        FORCED_RESET = 0
+        SystemviewBuffer = 0
+        USBDevice = Disable
+        Cell Temperature (C) = 24.5
+        ForceFiscalMode =
+        Print head lines(cm) = 112
+        Printed length (cm) = 112
+        Max temp of print head = 632
+        Replace time =
+        AC Power = On
+        Main Battery (%) = None
+        Backup battery (%) = 66
+        Main power lost times = 14
+        Soft switch off times = 8
+    </ModuleInformation>
+    <ModuleInformation Type="Keyboard" SoftwareVersion="KBbPlus"></ModuleInformation>
+    <ModuleInformation Type="Printer" SoftwareVersion="30211548O 1.00.0004"></ModuleInformation>
+    <ModuleInformation Type="Charger" SoftwareVersion=""></ModuleInformation>
+    <ModuleInformation Type="Loadcell" SoftwareVersion="1.70.33-22.01"></ModuleInformation>
+    <ModuleInformation Type="PMU" SoftwareVersion="S008H006I6R1111111/"></ModuleInformation>
+    <ModuleInformation Type="BootMon" SoftwareVersion="1.0.11"></ModuleInformation>
+    <ModuleInformation Type="Fiscal" SoftwareVersion=""></ModuleInformation>
+</SystemTransaction>
+</Message>
+
+
+<Message>
+<ARTSCommonHeader MessageType="Response"/>
+<NetworkExploration>
+    <DeviceMap>
+        <DeviceID>00:10:52:D0:D8:8E</DeviceID>
+        <ModelName>bPlus</ModelName>
+        <SerialNumber>C015279950</SerialNumber>
+        <FirmwareVersion>30232593K| AP1.0.0 RB2.2.0 WP2.2.0 SP1.70.33 [43056]</FirmwareVersion>
+        <DeviceNo>2</DeviceNo>
+        <DepartmentID>0</DepartmentID>
+        <IPAddress>192.168.0.155</IPAddress>
+        <TCPPort>3001</TCPPort>
+        <DeviceTime>2021-07-21T04:14:52</DeviceTime>
+        <TimeSinceSet>40227680</TimeSinceSet>
+        <MappingPort>0</MappingPort>
+        <CWANID/>
+        <LocalStoreID/>
+        <ImageVersion/>
+    </DeviceMap>
+</NetworkExploration>
+</Message>
+
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<ConfigTransaction ActionCode="Update">
+    <ConfigValue>
+        <Name>Platform.DeviceNo</Name>
+        <Value>2</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Platform.DeviceName</Name>
+        <Value>right</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Data.ServerDN</Name>
+        <Value></Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Data.ServiceType</Name>
+        <Value>Retrieve from IP</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Data.ServerIP</Name>
+        <Value>192.168.0.110</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Recall.DataSourceForRecal</Name>
+        <Value>Remote and Local</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Data.ServerPort</Name>
+        <Value>8003</Value>
+    </ConfigValue>
+</ConfigTransaction>
+</Message>
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<ConfigTransaction ActionCode="Update">
+    <ConfigValue>
+        <Name>Platform.DeviceNo</Name>
+        <Value>2</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Platform.DeviceName</Name>
+        <Value>right</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Data.ServerDN</Name>
+        <Value></Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Data.ServiceType</Name>
+        <Value>Retrieve from IP</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Data.ServerIP</Name>
+        <Value>192.168.0.110</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Recall.DataSourceForRecal</Name>
+        <Value>Remote and Local</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Data.ServerPort</Name>
+        <Value>8003</Value>
+    </ConfigValue>
+</ConfigTransaction>
+</Message>
+
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<TransactionLog ActionCode="MoveTo">
+    <Ticket>
+        <ReceiptID>6900000001</ReceiptID>
+        <LocalReceiptID>1</LocalReceiptID>
+        <DeviceID>69</DeviceID>
+        <ReceiptDate>2020-04-11T14:01:52</ReceiptDate>
+        <State>Closed</State>
+        <UserID>1</UserID>
+        <Registration>
+            <TradeDate>2020-04-11T14:01:52</TradeDate>
+            <Description>ArtÃculo introducir libre precio</Description>
+            <Weight>1.002000</Weight>
+            <BasePrice UnitPrice="0.060000" ValueTypeName="DirectPrice" PriceOverWriteFlag="true" DiscountFlag="true"
+                       Quantity="0" MarkUpFlag="true">0.060000
+            </BasePrice>
+            <PriceToPay>0.060000</PriceToPay>
+        </Registration>
+        <Weight>1.002000</Weight>
+        <PriceToPay>0.060000</PriceToPay>
+        <OriginalSalesTotal>0.060000</OriginalSalesTotal>
+        <FiscalState>NotExported</FiscalState>
+        <SequenceNumber>1</SequenceNumber>
+        <TicketReported>Reported</TicketReported>
+    </Ticket>
+</TransactionLog>
+</Message>
+
+
+        **** correct scale ticket *****
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<TransactionLog ActionCode="MoveTo">
+    <Ticket>
+        <ReceiptID>200000013</ReceiptID>
+        <LocalReceiptID>14</LocalReceiptID>
+        <DeviceID>2</DeviceID>
+        <ReceiptDate>2021-08-16T20:30:38</ReceiptDate>
+        <State>Closed</State>
+        <UserID>1</UserID>
+        <Registration>
+            <TradeDate>2021-08-16T20:30:36</TradeDate>
+            <PLU>777</PLU>
+            <AlternativeItemID>777</AlternativeItemID>
+            <Description>zubale</Description>
+            <Weight>0.898000</Weight>
+            <BasePrice UnitPrice="1.000000" Quantity="0">1.000000</BasePrice>
+            <PriceToPay>0.900000</PriceToPay>
+            <TransactionDateOffset Type="PackedDate" IsPrintEnabled="false">0</TransactionDateOffset>
+            <TransactionDateOffset Type="SellBy" IsPrintEnabled="false">0</TransactionDateOffset>
+        </Registration>
+        <Weight>0.898000</Weight>
+        <PriceToPay>0.900000</PriceToPay>
+        <OriginalSalesTotal>0.900000</OriginalSalesTotal>
+        <FiscalState>NotExported</FiscalState>
+        <SequenceNumber>13</SequenceNumber>
+        <TicketReported>Reported</TicketReported>
+    </Ticket>
+</TransactionLog>
+</Message>
+
+
+        *** corect server response ***
+
+<Message>
+<ARTSCommonHeader MessageType="Response">
+    <Response ResponseCode="OK"/>
+</ARTSCommonHeader>
+<TransactionLog ActionCode="MoveTo">
+    <Ticket>
+        <ID>0</ID>
+        <Discount/>
+        <MemberInfo/>
+    </Ticket>
+</TransactionLog>
+</Message>
+
+
+        *** wrong id scale report ***
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<TransactionLog ActionCode="MoveTo">
+    <Ticket>
+        <ReceiptID>2500000014</ReceiptID>
+        <LocalReceiptID>15</LocalReceiptID>
+        <DeviceID>25</DeviceID>
+        <ReceiptDate>2021-08-16T21:08:26</ReceiptDate>
+        <State>Closed</State>
+        <UserID>1</UserID>
+        <Registration>
+            <TradeDate>2021-08-16T21:08:23</TradeDate>
+            <PLU>777</PLU>
+            <AlternativeItemID>777</AlternativeItemID>
+            <Description>zubale</Description>
+            <Weight>0.386000</Weight>
+            <BasePrice UnitPrice="1.000000" Quantity="0">1.000000</BasePrice>
+            <PriceToPay>0.390000</PriceToPay>
+            <TransactionDateOffset Type="PackedDate" IsPrintEnabled="false">0</TransactionDateOffset>
+            <TransactionDateOffset Type="SellBy" IsPrintEnabled="false">0</TransactionDateOffset>
+        </Registration>
+        <Weight>0.386000</Weight>
+        <PriceToPay>0.390000</PriceToPay>
+        <OriginalSalesTotal>0.390000</OriginalSalesTotal>
+        <FiscalState>NotExported</FiscalState>
+        <SequenceNumber>14</SequenceNumber>
+        <TicketReported>Reported</TicketReported>
+    </Ticket>
+</TransactionLog>
+</Message>
+
+
+        *** network scan ***
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<NetworkExploration ActionCode="Read"/>
+</Message>
+
+        ** response scan **
+<Message>
+<ARTSCommonHeader MessageType="Response"/>
+<NetworkExploration>
+    <DeviceMap>
+        <DeviceID>00:10:52:D0:D8:8E</DeviceID>
+        <ModelName>bPlus</ModelName>
+        <SerialNumber>C015279950</SerialNumber>
+        <FirmwareVersion>30232593K| AP1.0.0 RB2.2.0 WP2.2.0 SP1.70.33 [43056]</FirmwareVersion>
+        <DeviceNo>25</DeviceNo>
+        <DeviceName>right</DeviceName>
+        <DepartmentID>0</DepartmentID>
+        <IPAddress>192.168.0.155</IPAddress>
+        <TCPPort>3001</TCPPort>
+        <DeviceTime>2021-08-16T21:10:20</DeviceTime>
+        <TimeSinceSet>42535008</TimeSinceSet>
+        <MappingPort>0</MappingPort>
+        <CWANID/>
+        <LocalStoreID/>
+        <ImageVersion/>
+    </DeviceMap>
+</NetworkExploration>
+</Message>
+
+        **update id **
+
+<Message>
+<ARTSCommonHeader MessageType="Request"/>
+<ConfigTransaction ActionCode="Update">
+    <ConfigValue>
+        <Name>Platform.DeviceNo</Name>
+        <Value>2</Value>
+    </ConfigValue>
+    <ConfigValue>
+        <Name>Platform.DeviceName</Name>
+        <Value>right</Value>
+    </ConfigValue>
+</ConfigTransaction>
+</Message>

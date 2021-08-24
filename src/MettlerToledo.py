@@ -1,4 +1,5 @@
 import socket
+from socketserver import BaseRequestHandler, UDPServer
 import xml.dom.minidom
 import re
 
@@ -14,11 +15,12 @@ class Scale:
     TCP_PORT = 3001
     SERVER_IP_AD = "192.168.0.110"
     CLIENT_IP_AD = "192.168.0.155"
-    BROADCAST_IP = "255.255.255.250"
+    BROADCAST_IP = "255.255.255.255"
 
-    def __init__(self, port="COM5", timeout=10):
-        self.PORT = port
-        self.TIMEOUT = timeout
+    def __init__(self):
+        self.exploreForScale()
+        self.removePlu()
+        self.addPlu()
 
     def sendMessage(self, file_path, client_ip=CLIENT_IP_AD):
         print('message en route')
@@ -54,13 +56,21 @@ class Scale:
     def removePlu(self):
         self.sendMessage(self.REMOVE_PLU_PATH)
 
+    def pingScale(self):
+        self.sendMessage(self.NET_EXPLORE_PATH)
+        #todo return data
+
     def exploreForScale(self):
-        scale = self.sendMessage(self.NET_EXPLORE_PATH, self.BROADCAST_IP)
-        print(scale)
-        #TODO fix errors for broadcast
+        #recieve ip from udp broadcast
+        print('waiting for message')
+        syslog = UDPServer((self.SERVER_IP_AD, 2305), BaseRequestHandler)
+        syslog.handle_request()
+        request = syslog.get_request()
+        print(request[1][0])
+        self.CLIENT_IP_AD = request[1][0]
+        syslog.server_close()
 
 if __name__ == '__main__':
     scale = Scale()
-    scale.exploreForScale()
 
 
