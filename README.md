@@ -31,14 +31,14 @@ pip install -r requirements.txt
 ##### Windows
 
 ```
-set FLASK_APP=WebApi.py
+set FLASK_APP=src/WebApi.py
 python -m flask run
 ```
 
 ##### Mac/Linux
 
 ```
-export FLASK_APP=WebApi.py
+export FLASK_APP=src/WebApi.py
 python -m flask run
 ```
 

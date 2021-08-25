@@ -5,11 +5,12 @@ import re
 
 class Scale:
 
-    XML_PATH = "src/xml/"
-    RESPONSE_PATH = XML_PATH + "receive_ticket.xml"
-    PLU_PATH = XML_PATH + "create_plu.xml"
-    REMOVE_PLU_PATH = XML_PATH + "remove_plu.xml"
-    NET_EXPLORE_PATH = XML_PATH + "net_explore.xml"
+    FILES_DIR = "src/files/"
+    RESPONSE_PATH = FILES_DIR + "receive_ticket.xml"
+    PLU_PATH = FILES_DIR + "create_plu.xml"
+    REMOVE_PLU_PATH = FILES_DIR + "remove_plu.xml"
+    NET_EXPLORE_PATH = FILES_DIR + "net_explore.xml"
+    CURRENT_WEIGHT_DIR = FILES_DIR + "current_weight.txt"
 
     BUFFER_SIZE = 1024
     TCP_PORT = 3001
@@ -18,9 +19,8 @@ class Scale:
     BROADCAST_IP = "255.255.255.255"
 
     def __init__(self):
-        self.exploreForScale()
-        self.removePlu()
-        self.addPlu()
+        self.reset()
+
 
     def sendMessage(self, file_path, client_ip=CLIENT_IP_AD):
         print('message en route')
@@ -39,7 +39,7 @@ class Scale:
         collection = DOMTree.documentElement
         return collection
 
-    def getAttribute(tag, attribute, collection):
+    def getAttribute(self, tag, attribute, collection):
         elementTag = collection.getElementsByTagName(tag)[-1]
         if (elementTag.hasAttribute(attribute)):
             return float(elementTag.getAttribute(attribute))
@@ -69,6 +69,15 @@ class Scale:
         print(request[1][0])
         self.CLIENT_IP_AD = request[1][0]
         syslog.server_close()
+
+    def reset(self):
+        self.exploreForScale()
+        self.removePlu()
+        self.addPlu()
+
+    @property
+    def getWeight(self):
+        return  float(self.openFile(self.CURRENT_WEIGHT_DIR))
 
 if __name__ == '__main__':
     scale = Scale()

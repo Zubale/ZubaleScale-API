@@ -1,14 +1,7 @@
 from socketserver import BaseRequestHandler, TCPServer
 import xml.dom.minidom as xml
 
-XML_TAG = "Weight"
 
-BUFFER_SIZE = 1024
-TCP_PORT = 3001
-IP_AD = "192.168.0.110"
-FILES_DIR = "files/"
-RESPONSE_DIR = FILES_DIR + "receive_ticket.xml"
-CURRENT_WEIGHT_DIR = FILES_DIR + "current_weight.txt"
 
 
 
@@ -17,20 +10,27 @@ class ScaleHandler(BaseRequestHandler):
     Server handler is required to handle tcp request.
     See examples: https://www.programcreek.com/python/example/73643/SocketServer.BaseRequestHandler
     """
+    XML_TAG = "Weight"
 
+    BUFFER_SIZE = 1024
+    TCP_PORT = 3001
+    IP_AD = "192.168.0.110"
+    FILES_DIR = "files/"
+    RESPONSE_DIR = FILES_DIR + "receive_ticket.xml"
+    CURRENT_WEIGHT_DIR = FILES_DIR + "current_weight.txt"
 
     def handle(self):
         #get data and send generic response
         print("Receiving data")
-        data = self.request.recv(BUFFER_SIZE)
+        data = self.request.recv(self.BUFFER_SIZE)
         print(f"{self.client_address[0]}: {data.decode()}")
-        response = self.openFile(RESPONSE_DIR).encode()
+        response = self.openFile(self.RESPONSE_DIR).encode()
         self.request.sendall(response)
 
         #save data to file
         print("Saving data")
         weight  = self.getWeight(data.decode())
-        self.writeFile(CURRENT_WEIGHT_DIR,weight)
+        self.writeFile(self.CURRENT_WEIGHT_DIR,weight)
 
 
 
