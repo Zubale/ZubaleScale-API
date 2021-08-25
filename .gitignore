@@ -127,3 +127,4 @@ dmypy.json
 #intellij
 *.idea
 *.exe
+src/files/current_weight.txt

@@ -62,13 +62,14 @@ class Scale:
 
     def exploreForScale(self):
         #recieve ip from udp broadcast
-        print('waiting for message')
+        print('Waiting for scale setup message')
         syslog = UDPServer((self.SERVER_IP_AD, 2305), BaseRequestHandler)
         syslog.handle_request()
         request = syslog.get_request()
         print(request[1][0])
         self.CLIENT_IP_AD = request[1][0]
         syslog.server_close()
+        print('Scale setup message received')
 
     def reset(self):
         self.exploreForScale()

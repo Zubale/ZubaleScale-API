@@ -1,27 +1,36 @@
-import MettlerToledo, threading
+import src.MettlerToledo as MettlerToledo, threading
 from flask import Flask, jsonify
 from socketserver import TCPServer
-from ScaleHandler import ScaleHandler
+from src.ScaleHandler import ScaleHandler
 
 # set FLASK_APP=WebApi.py
 # run python -m flask run
 
 def launchScaleServer():
     try:
-        syslog = TCPServer((ScaleHandler.IP_AD, ScaleHandler.TCP_PORT), ScaleHandler)
         print("Scale server starts")
+        syslog = TCPServer((ScaleHandler.IP_AD, ScaleHandler.TCP_PORT), ScaleHandler)
         syslog.serve_forever(poll_interval=1)
 
     except Exception as e:
         print("Error", e)
 
 
-
+print("Starting tcp sever")
 t = threading.Thread(target=launchScaleServer)
 t.daemon = True
 t.start()
+print("Tcp server running")
+
+print("Starting rest server")
+
+print("Instantiating scale controller")
 scale = MettlerToledo.Scale()
+print("Finished instantiating scale controller")
+
 app = Flask("ScaleAPI")
+
+print("Started rest server")
 
 
 
@@ -46,15 +55,15 @@ def statusOnScale():
         return jsonify({"error": str(e), "info": str(e.__traceback__)})
 
 
-@app.route('/reset')
+@app.route('/resetScale')
 def reset():
     try:
         scale.reset()
     except Exception as e:
         return jsonify({"error": str(e), "info": str(e.__traceback__)})
 
-@app.route('/reboot')
-def reset():
+@app.route('/rebootScale')
+def reboot():
     try:
         exit()
     except Exception as e:

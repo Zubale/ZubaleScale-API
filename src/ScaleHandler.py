@@ -15,7 +15,7 @@ class ScaleHandler(BaseRequestHandler):
     BUFFER_SIZE = 1024
     TCP_PORT = 3001
     IP_AD = "192.168.0.110"
-    FILES_DIR = "files/"
+    FILES_DIR = "src/files/"
     RESPONSE_DIR = FILES_DIR + "receive_ticket.xml"
     CURRENT_WEIGHT_DIR = FILES_DIR + "current_weight.txt"
 
@@ -31,6 +31,7 @@ class ScaleHandler(BaseRequestHandler):
         print("Saving data")
         weight  = self.getWeight(data.decode())
         self.writeFile(self.CURRENT_WEIGHT_DIR,weight)
+        print("Data saved")
 
 
 
@@ -48,14 +49,14 @@ class ScaleHandler(BaseRequestHandler):
 
     def getWeight(self, raw_xml):
         domtree = xml.parseString(raw_xml).documentElement
-        node = domtree.getElementsByTagName(XML_TAG)[0]
+        node = domtree.getElementsByTagName(self.XML_TAG)[0]
         elem = node.childNodes[0]
         return elem.nodeValue
 
 
 if __name__ == "__main__":
     try:
-        syslog = TCPServer((IP_AD, TCP_PORT), ScaleHandler)
+        syslog = TCPServer((ScaleHandler.IP_AD, ScaleHandler.TCP_PORT), ScaleHandler)
         print("EZ syslog starts, CTRL-C to stop...")
         syslog.serve_forever(poll_interval=1)
 
