@@ -5,9 +5,11 @@
 + [Getting Started](#getting_started)
 + [Usage](#usage)
 + [Contributing](../CONTRIBUTING.md)
++ [Authors](#authors)
+
 
 ## About <a name = "about"></a>
- Python api for IOT communication with Avery-Weigh Tronix Scales
+ Python api for IOT communication with Avery-Weigh Tronix Scales and Mettler Toledo B2 Scales
 
 ## Getting Started <a name = "getting_started"></a>
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
@@ -46,3 +48,6 @@ Then a flask app should start running on localhost:5000. Ready to be called with
 ## Usage <a name = "usage"></a>
 
 This only runs locally if needed to run more data use a [recommended production](https://flask.palletsprojects.com/en/1.1.x/deploying/#deployment) or use [ngrok](ngrok.com/) for one device 
+
+## ✍️ Authors <a name = "authors"></a>
+- [@Rudolf](https://github.com/FanchiniRudolf) - Development and idea execution
